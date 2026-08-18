@@ -1,0 +1,25 @@
+{
+  "name": "playwright_opencart_ai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@faker-js/faker": "^10.5.0",
+    "ajv": "^8.20.0",
+    "allure-playwright": "^3.10.2",
+    "csv-parse": "^7.0.2",
+    "dotenv": "^17.4.2",
+    "luxon": "^3.7.2",
+    "mysql2": "^3.23.3",
+    "xlsx": "^0.18.5"
+  }
+}

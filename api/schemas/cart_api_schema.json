@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Generated schema for Root",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "number"
+        },
+        "userId": {
+            "type": "number"
+        },
+        "date": {
+            "type": "string"
+        },
+        "products": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "productId": {
+                        "type": "number"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "productId",
+                    "quantity"
+                ]
+            }
+        },
+        "__v": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "id",
+        "userId",
+        "date",
+        "products",
+        "__v"
+    ]
+}

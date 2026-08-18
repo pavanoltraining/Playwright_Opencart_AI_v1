@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Generated schema for Root",
+    "type": "object",
+    "properties": {
+        "address": {
+            "type": "object",
+            "properties": {
+                "geolocation": {
+                    "type": "object",
+                    "properties": {
+                        "lat": {
+                            "type": "string"
+                        },
+                        "long": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "lat",
+                        "long"
+                    ]
+                },
+                "city": {
+                    "type": "string"
+                },
+                "street": {
+                    "type": "string"
+                },
+                "number": {
+                    "type": "number"
+                },
+                "zipcode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geolocation",
+                "city",
+                "street",
+                "number",
+                "zipcode"
+            ]
+        },
+        "id": {
+            "type": "number"
+        },
+        "email": {
+            "type": "string"
+        },
+        "username": {
+            "type": "string"
+        },
+        "password": {
+            "type": "string"
+        },
+        "name": {
+            "type": "object",
+            "properties": {
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "firstname",
+                "lastname"
+            ]
+        },
+        "phone": {
+            "type": "string"
+        },
+        "__v": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "address",
+        "id",
+        "email",
+        "username",
+        "password",
+        "name",
+        "phone",
+        "__v"
+    ]
+}
