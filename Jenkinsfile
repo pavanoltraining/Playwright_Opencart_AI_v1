@@ -23,7 +23,7 @@ pipeline {
   parameters {
     choice(
       name: 'TEST_SUITE',
-      choices: ['test:master', 'test:sanity', 'test:regression', 'test:e2e', 'test:api', 'test:web', 'test:datadriven'],
+      choices: ['test:e2e', 'test:master', 'test:sanity', 'test:regression', 'test:api', 'test:web', 'test:datadriven'],
       description: 'Select the test suite to run'
     )
     choice(
