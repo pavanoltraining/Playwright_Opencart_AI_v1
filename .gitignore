@@ -6,7 +6,6 @@
 #  Dependencies 
 node_modules/
 
-
 # Environment & secrets 
 .env
 
@@ -28,4 +27,9 @@ node_modules/
 .commandcode/
 .playwright-cli/
 .playwright-mcp/
+.playwright/
+.vscode/
 
+#  Others
+/prompts/
+/docs/

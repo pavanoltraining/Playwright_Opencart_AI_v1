@@ -12,6 +12,8 @@ allure-results
 allure-report
 custom-report
 playwright-report
+blob-report
+playwright/
 
 #  Documentation & prompts (not needed at runtime)
 docs/
@@ -23,15 +25,20 @@ Jenkinsfile
 env_setup.bat
 docker-compose.yml
 
+#  Docker build self-exclusion
+Dockerfile
+.dockerignore
+
+#  Version control & meta
+.git
+.gitignore
+.gitattributes
+.github
+.claude
+.commandcode
+
 # Playwright / IDE cache & config
 .playwright/
 .playwright-cli/
 .playwright-mcp/
 .vscode/
-
-#  Version control
-.git
-.gitignore
-.github
-.claude
-.commandcode
