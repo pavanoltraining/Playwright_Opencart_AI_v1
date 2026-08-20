@@ -107,6 +107,8 @@ pipeline {
             </p>
         """,
         to: "pavanoltraining@gmail.com",
+        from: "pavanoltraining@gmail.com",
+        replyTo: "pavanoltraining@gmail.com",
         mimeType: "text/html"
       )
     }
