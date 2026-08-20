@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+
+#  Environment & secrets
+.env
+.env.example
+
+#  Test artifacts (bind-mounted at runtime, not part of the image)
+test-results
+reports
+allure-results
+allure-report
+custom-report
+playwright-report
+
+#  Documentation & prompts (not needed at runtime)
+docs/
+prompts/
+*.md
+
+#  CI/CD & platform-specific config
+Jenkinsfile
+env_setup.bat
+docker-compose.yml
+
+# Playwright / IDE cache & config
+.playwright/
+.playwright-cli/
+.playwright-mcp/
+.vscode/
+
+#  Version control
+.git
+.gitignore
+.github
+.claude
+.commandcode

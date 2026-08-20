@@ -1,0 +1,47 @@
+# =============================================================================
+# Docker Compose — Playwright + TypeScript Automation Framework
+# =============================================================================
+# Usage:
+#   docker compose build                          # Build the image
+#   docker compose run --rm playwright-tests      # Run all tests
+#   docker compose run --rm playwright-tests sanity
+#   docker compose run --rm playwright-tests regression
+#   docker compose run --rm playwright-tests web
+#   docker compose run --rm playwright-tests api
+#   docker compose run --rm playwright-tests master
+#   docker compose run --rm playwright-tests e2e
+#   docker compose run --rm playwright-tests datadriven
+#
+# Pass extra Playwright args:
+#   docker compose run --rm playwright-tests web --headed --workers 2
+
+# =============================================================================
+
+services:
+  playwright-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: playwright-opencart
+    container_name: playwright-opencart-tests
+    working_dir: /app
+    env_file:
+      - .env
+    environment:
+      CI: "1"
+    volumes:
+      # Mount the project root so code changes are reflected without rebuilds
+      - .:/app
+      # Preserve the container's node_modules (bind mount would shadow it)
+      - /app/node_modules
+      # Persist reports and artifacts on the host
+      - ./reports:/app/reports
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/allure-report
+      - ./custom-report:/app/custom-report
+      - ./test-results:/app/test-results
+    # Default suite — override via command-line argument
+    #   docker compose run --rm playwright-tests api
+    command: [ "all" ]
+    stdin_open: true
+    tty: true
