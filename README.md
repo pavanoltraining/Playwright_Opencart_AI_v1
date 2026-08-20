@@ -763,7 +763,7 @@ flowchart LR
 open reports/index.html
 ```
 
-![Playwright HTML Report](docs/images/Playwright%20HTML%20Report.png)
+![Playwright HTML Report](images/Playwright%20HTML%20Report.png)
 
 ### 2️⃣ Allure Report
 
@@ -773,7 +773,7 @@ npx allure generate allure-results --clean -o allure-report
 npx allure open allure-report
 ```
 
-![Allure Report](docs/images/Allure%20Report.png)
+![Allure Report](images/Allure%20Report.png)
 
 ### 3️⃣ JUnit XML Report
 
@@ -792,7 +792,7 @@ A custom reporter (`utils/CustomReporter.ts`) generates a branded HTML dashboard
 
 Open `custom-report/index.html` in a browser to view.
 
-![Custom HTML Dashboard](docs/images/Custom%20HTML%20Dashboard.png)
+![Custom HTML Dashboard](images/Custom%20HTML%20Dashboard.png)
 
 ---
 
