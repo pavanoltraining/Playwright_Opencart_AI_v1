@@ -763,6 +763,8 @@ flowchart LR
 open reports/index.html
 ```
 
+![Playwright HTML Report](docs/images/Playwright%20HTML%20Report.png)
+
 ### 2️⃣ Allure Report
 
 ```bash
@@ -770,6 +772,8 @@ open reports/index.html
 npx allure generate allure-results --clean -o allure-report
 npx allure open allure-report
 ```
+
+![Allure Report](docs/images/Allure%20Report.png)
 
 ### 3️⃣ JUnit XML Report
 
@@ -787,6 +791,8 @@ A custom reporter (`utils/CustomReporter.ts`) generates a branded HTML dashboard
 - Timeline and chart visualizations
 
 Open `custom-report/index.html` in a browser to view.
+
+![Custom HTML Dashboard](docs/images/Custom%20HTML%20Dashboard.png)
 
 ---
 
@@ -899,7 +905,7 @@ flowchart LR
 
 ---
 
-## 🎯 Coding Guidelines
+## 📋 Coding Guidelines
 
 - Follow the **Page Object Model** pattern for all UI interactions
 - Use **tags** (`@tag`) to categorize every test
