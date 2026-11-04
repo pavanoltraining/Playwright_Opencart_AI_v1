@@ -23,7 +23,8 @@ export class MyAccountPage {
      */
     async isMyAccountPageExists(): Promise<boolean> {
         try {
-            return await this.myAccountHeading.isVisible();
+            await this.myAccountHeading.waitFor({ state: 'visible', timeout: 10000 });
+            return true;
         } catch (error) {
             console.log(`Error checking My Account page: ${error}`);
             return false;
@@ -43,7 +44,8 @@ export class MyAccountPage {
      */
     async isAuthenticated(): Promise<boolean> {
         try {
-            return await this.logoutLink.isVisible();
+            await this.logoutLink.waitFor({ state: 'visible', timeout: 10000 });
+            return true;
         } catch (error) {
             console.log(`Error checking authentication: ${error}`);
             return false;

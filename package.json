@@ -31,6 +31,14 @@
     "test:e2e": "playwright test --grep @e2e",
     "test:datadriven": "playwright test --grep @datadriven",
     "test:master:headed": "playwright test --grep @sanity --headed",
-    "test:sanity:debug": "playwright test --grep @sanity --debug"
-}
+    "test:sanity:debug": "playwright test --grep @sanity --debug",
+    "env:local": "cp .env.local .env",
+    "env:remote": "cp .env.remote .env",
+    "test:local": "npm run env:local && npx playwright test",
+    "test:remote": "npm run env:remote && npx playwright test",
+    "test:local:web": "npm run env:local && npm run test:web",
+    "test:remote:web": "npm run env:remote && npm run test:web",
+    "test:local:db": "npm run env:local && npx playwright test --grep @db",
+    "test:remote:sanity": "npm run env:remote && npm run test:sanity"
+  }
 }
