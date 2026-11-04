@@ -82,7 +82,8 @@ export class LoginPage {
      */
     async isWarningMessageVisible(): Promise<boolean> {
         try {
-            return await this.warningMessage.isVisible();
+            await this.warningMessage.waitFor({ state: 'visible', timeout: 10000 });
+            return true;
         } catch (error) {
             console.log(`Error checking warning message: ${error}`);
             return false;

@@ -33,3 +33,5 @@ node_modules/
 #  Others
 /prompts/
 /docs/
+.env.local
+.env.remote

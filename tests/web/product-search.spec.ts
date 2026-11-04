@@ -16,6 +16,7 @@
 import { test, expect } from '../../fixtures/pageFixtures';
 import { Helper } from '../../utils/helper';
 
+
 test('Product Search Flow @master @regression @web', async ({ homePage, searchResultsPage }) => {
     const { productName } = Helper.getProductDetails();
 
@@ -27,6 +28,7 @@ test('Product Search Flow @master @regression @web', async ({ homePage, searchRe
         await homePage.searchProduct(productName);
     });
 
+    
     await test.step('3) Verify the search results page is displayed', async () => {
         const isSearchPage = await searchResultsPage.isSearchResultsPageExists();
         expect(isSearchPage).toBeTruthy();
@@ -43,4 +45,11 @@ test('Product Search Flow @master @regression @web', async ({ homePage, searchRe
     });
 
     console.log('✅ Product Search completed successfully!');
+
+
 });
+
+
+
+
+

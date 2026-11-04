@@ -16,8 +16,16 @@ import { executeQuery } from '../../utils/dbClient';
 const ADMIN_URL = process.env.ADMIN_URL || 'http://localhost/opencart/upload/admin/index.php';
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || '';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
+const WEB_APP_URL = process.env.WEB_APP_URL || 'http://localhost/opencart/upload/';
 
-test.describe('OpenCart Customer Registration - UI + Admin + DB Validation @master @end-to-end @db', () => {
+// Check if local OpenCart environment is configured (DB tests require local admin panel and database)
+// Skip DB tests when using remote demo sites (e.g., awesomeqa.com) as they don't have admin panel/DB access
+const isLocalEnvironment = WEB_APP_URL.includes('localhost');
+
+// Conditionally skip DB tests when local environment is not available
+const describeDb = isLocalEnvironment ? test.describe : test.describe.skip;
+
+describeDb('OpenCart Customer Registration - UI + Admin + DB Validation @master @end-to-end @db', () => {
 
     test('Register customer, verify in admin portal and MySQL @db', async ({
         page, homePage, registerPage, successPage, adminLoginPage, adminCustomersPage, adminCustomerEditPage

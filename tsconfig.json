@@ -1,12 +1,12 @@
 {
     "compilerOptions": {
         "target": "ES2022",
-        "module": "Node16",
+        "module": "ES2022",
         "lib": [
             "ES2022",
             "DOM"
         ],
-        "moduleResolution": "node16",
+        "moduleResolution": "bundler",
         "types": [
             "node"
         ],
@@ -17,10 +17,16 @@
         "resolveJsonModule": true,
         "isolatedModules": false,
         "outDir": "dist",
-        "ignoreDeprecations": "6.0"
+        "ignoreDeprecations": "6.0",
+        "allowSyntheticDefaultImports": true
     },
     "include": [
-        "playwright.config.ts"
+        "playwright.config.ts",
+        "tests/**/*.ts",
+        "pages/**/*.ts",
+        "utils/**/*.ts",
+        "fixtures/**/*.ts",
+        "api/**/*.ts"
     ],
     "exclude": [
         "node_modules"

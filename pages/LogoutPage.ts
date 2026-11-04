@@ -21,7 +21,8 @@ export class LogoutPage {
      */
     async isLogoutPageExists(): Promise<boolean> {
         try {
-            return await this.logoutHeading.isVisible();
+            await this.logoutHeading.waitFor({ state: 'visible', timeout: 10000 });
+            return true;
         } catch (error) {
             console.log(`Error checking logout page: ${error}`);
             return false;

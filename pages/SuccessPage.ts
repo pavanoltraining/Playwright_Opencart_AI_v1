@@ -21,7 +21,8 @@ export class SuccessPage {
      */
     async isSuccessPageExists(): Promise<boolean> {
         try {
-            return await this.successHeading.isVisible();
+            await this.successHeading.waitFor({ state: 'visible', timeout: 10000 });
+            return true;
         } catch (error) {
             console.log(`Error checking success page: ${error}`);
             return false;
