@@ -208,4 +208,80 @@ test.describe('Invalid Login Flows @master @regression @web', () => {
         console.log('✅ Invalid Login - Empty Password Field validated!');
     });
 
+    /**
+     * Test Case 6: Very Long Email (255+ characters)
+     * Tests boundary validation for email field length
+     * Severity: 🟡 High - Boundary Testing
+     */
+    test('Invalid Login - Very Long Email (255+ chars)', async ({ homePage, loginPage, myAccountPage }) => {
+        const longEmail = 'a'.repeat(250) + '@example.com'; // 262 characters
+        const validPassword = "test@123";
+
+        await test.step('1) Open the application', async () => {
+            await homePage.navigateTo(process.env.WEB_APP_URL || 'http://localhost/opencart/upload/');
+        });
+
+        await test.step('2) Navigate to My Account → Login', async () => {
+            await homePage.clickMyAccount();
+            await homePage.clickLogin();
+        });
+
+        await test.step('3) Enter very long email and valid password', async () => {
+            await loginPage.login(longEmail, validPassword);
+        });
+
+        await test.step('4) Verify authentication fails with warning message', async () => {
+            const isWarning = await loginPage.isWarningMessageVisible();
+            expect(isWarning).toBeTruthy();
+
+            const warningText = await loginPage.getWarningMessage();
+            expect(warningText).toContain('Warning');
+        });
+
+        await test.step('5) Verify the customer is not authenticated', async () => {
+            const isMyAccount = await myAccountPage.isMyAccountPageExists();
+            expect(isMyAccount).toBeFalsy();
+        });
+
+        console.log('✅ Invalid Login - Very Long Email validated!');
+    });
+
+    /**
+     * Test Case 7: Very Long Password (255+ characters)
+     * Tests boundary validation for password field length
+     * Severity: 🟡 High - Boundary Testing
+     */
+    test('Invalid Login - Very Long Password (255+ chars)', async ({ homePage, loginPage, myAccountPage }) => {
+        const validEmail = "pavanol@xyz.com";
+        const longPassword = 'a'.repeat(255); // 255 characters
+
+        await test.step('1) Open the application', async () => {
+            await homePage.navigateTo(process.env.WEB_APP_URL || 'http://localhost/opencart/upload/');
+        });
+
+        await test.step('2) Navigate to My Account → Login', async () => {
+            await homePage.clickMyAccount();
+            await homePage.clickLogin();
+        });
+
+        await test.step('3) Enter valid email and very long password', async () => {
+            await loginPage.login(validEmail, longPassword);
+        });
+
+        await test.step('4) Verify authentication fails with warning message', async () => {
+            const isWarning = await loginPage.isWarningMessageVisible();
+            expect(isWarning).toBeTruthy();
+
+            const warningText = await loginPage.getWarningMessage();
+            expect(warningText).toContain('Warning');
+        });
+
+        await test.step('5) Verify the customer is not authenticated', async () => {
+            const isMyAccount = await myAccountPage.isMyAccountPageExists();
+            expect(isMyAccount).toBeFalsy();
+        });
+
+        console.log('✅ Invalid Login - Very Long Password validated!');
+    });
+
 });
